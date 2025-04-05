@@ -1,0 +1,29 @@
+{
+  "name": "Run_Tracker",
+  "type": "UDT",
+  "tags": [
+    { "name": "run_id", "type": "String" },
+    { "name": "status", "type": "String" },
+    { "name": "location", "type": "String" },
+    { "name": "operator", "type": "String" },
+    { "name": "reporter", "type": "String" },
+    { "name": "scan_time", "type": "DateTime" },
+
+    { "name": "priority", "type": "Int4" },
+    { "name": "due_date", "type": "DateTime" },
+    { "name": "eta_minutes", "type": "Int4" },
+    { "name": "actual_duration", "type": "Int4" },
+    { "name": "expires_on", "type": "DateTime" },
+    { "name": "cure_by", "type": "DateTime" },
+
+    { "name": "work_stoppage", "type": "String" },
+    { "name": "work_stoppage_reason_code", "type": "String" },
+    { "name": "work_stoppage_duration", "type": "Int4" },
+    { "name": "work_stoppage_count", "type": "Int4" },
+    { "name": "total_work_stoppage", "type": "Int4" },
+    { "name": "stoppage_start_time", "type": "DateTime" },
+
+    { "name": "notes", "type": "String" },
+    { "name": "current_stage", "type": "String" }
+  ]
+}
