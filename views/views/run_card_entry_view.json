@@ -1,0 +1,51 @@
+{
+  "root": {
+    "type": "container",
+    "props": {
+      "direction": "column",
+      "padding": 12,
+      "style": { "gap": "1rem" }
+    },
+    "children": [
+      {
+        "type": "input.textField",
+        "name": "txt_workorder",
+        "props": {
+          "label": "Scan or Enter Workorder",
+          "placeholder": "Scan or enter MFID..."
+        }
+      },
+      {
+        "type": "input.textField",
+        "name": "txt_workstation",
+        "props": {
+          "label": "Scan or Enter Workstation",
+          "placeholder": "e.g., WS-14"
+        }
+      },
+      {
+        "type": "button",
+        "name": "btn_submit",
+        "props": {
+          "label": "Submit Run Card",
+          "style": { "alignSelf": "flex-start" }
+        },
+        "events": {
+          "onClick": {
+            "script": "// Use values from text fields to create or update a Run_Card UDT instance\n// You would call system.tag.configure or a named script here"
+          }
+        }
+      },
+      {
+        "type": "embeddedView",
+        "name": "run_card_display",
+        "props": {
+          "path": "RunCardDisplay",
+          "params": {
+            "runCardPath": "[default]RunCards/{txt_workorder.props.text}"
+          }
+        }
+      }
+    ]
+  }
+}
