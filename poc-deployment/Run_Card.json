@@ -1,0 +1,20 @@
+{
+  "name": "Run_Card",
+  "type": "UDT",
+  "tags": [
+    { "name": "workorder",         "type": "String" },
+    { "name": "product_code",      "type": "String" },
+    { "name": "workstation",       "type": "String" },
+    { "name": "workcenter",        "type": "String" },
+    { "name": "reporter",          "type": "String" },
+    { "name": "priority",          "type": "String" },
+    { "name": "status",            "type": "String" },
+    { "name": "start_time",        "type": "DateTime" },
+    { "name": "estimated_finish",  "type": "DateTime" },
+    {
+      "name": "duration_minutes",
+      "type": "Integer",
+      "expression": "dateDiff(now(), {this.start_time}, 'minutes')"
+    }
+  ]
+}
