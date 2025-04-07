@@ -1,0 +1,23 @@
+{
+  "tags": [
+    {
+      "name": "WorkstationMap",
+      "type": "DataSet",
+      "dataType": "Dataset",
+      "value": {
+        "columnNames": ["workstation", "workcenter"],
+        "rows": [
+          { "workstation": "WS-01", "workcenter": "Cutting" },
+          { "workstation": "WS-10", "workcenter": "Layup" },
+          { "workstation": "WS-14", "workcenter": "Layup" },
+          { "workstation": "WS-20", "workcenter": "Assembly" },
+          { "workstation": "WS-30", "workcenter": "Inspection" }
+        ]
+      },
+      "attributes": {
+        "MemorySize": 1,
+        "TagGroup": "Default"
+      }
+    }
+  ]
+}
