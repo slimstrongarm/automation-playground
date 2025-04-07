@@ -1,0 +1,70 @@
+{
+  "params": {},
+  "root": {
+    "type": "container",
+    "props": {
+      "direction": "column",
+      "style": { "gap": "1rem", "padding": 16 }
+    },
+    "children": [
+      {
+        "type": "label",
+        "props": {
+          "text": "🔧 Tool Request Form",
+          "style": { "fontSize": "20px", "fontWeight": "bold" }
+        }
+      },
+      {
+        "type": "text-field",
+        "name": "txt_tool_id",
+        "props": {
+          "label": "Tool ID",
+          "placeholder": "Scan or enter Tool ID"
+        }
+      },
+      {
+        "type": "dropdown",
+        "name": "dropdown_priority",
+        "props": {
+          "label": "Priority",
+          "options": [
+            { "label": "Low", "value": "low" },
+            { "label": "Medium", "value": "medium" },
+            { "label": "High", "value": "high" }
+          ]
+        }
+      },
+      {
+        "type": "datetime-picker",
+        "name": "due_time_picker",
+        "props": {
+          "label": "Requested Due Date & Time"
+        }
+      },
+      {
+        "type": "text-area",
+        "name": "txt_notes",
+        "props": {
+          "label": "Notes",
+          "placeholder": "Optional request notes"
+        }
+      },
+      {
+        "type": "image",
+        "name": "img_tool_preview",
+        "props": {
+          "source": "https://your-image-source.com/tools/{tool_id}.png",
+          "style": { "maxHeight": "200px" }
+        }
+      },
+      {
+        "type": "button",
+        "name": "btn_submit",
+        "props": {
+          "text": "Submit Tool Request",
+          "onClick": "runScript('project.scripts.tool_request_creator.submit_request')"
+        }
+      }
+    ]
+  }
+}
