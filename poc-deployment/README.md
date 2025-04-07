@@ -57,3 +57,32 @@ Place the following in the appropriate script areas:
 - Pass in workflow order param:
 ```json
 ["Cutting", "Layup", "Assembly", "Inspection"]
+
+---
+
+### 🧠 Bonus: Dynamic Workstation → Workcenter Mapping
+
+This POC includes support for **auto-assigning workcenters** based on scanned or typed workstation IDs.
+
+- **Mapping Tag**: `[default]/WorkstationMap` (Memory Tag with dataset)
+- **Mapping UI View**: `WorkstationMappingEditor.json`
+- **Used In Script**: `run_card_creator_script.py`
+
+To configure:
+1. Open the `WorkstationMappingEditor` view in Perspective
+2. Edit the workstation → workcenter table directly
+3. Click **Save Changes** to update the mapping in real time
+
+✅ The `run_card_creator_script` will automatically use this mapping to assign the correct workcenter to each Run_Card.
+
+> This eliminates manual input and makes the system more scalable, consistent, and future-proof.
+
+---
+
+## ✅ Final Notes
+- You can trigger the `run_card_creator_script` from your scan form to auto-instantiate UDTs
+- This structure is ready for MQTT publishing using Unified Namespace principles
+- To publish to MQTT, add `system.cirruslink.engine.publish()` calls inside `run_card_creator_script`
+
+---
+
