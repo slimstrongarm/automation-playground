@@ -18,6 +18,7 @@ This doc provides everything needed to deploy the full proof-of-concept into you
 ├── WorkcenterColumn.json
 ├── kanban_board_base_layout.json
 ├── WorkstationMappingEditor.json
+├── WorkstationMap.json
 ```
 
 ---
@@ -93,6 +94,9 @@ To configure:
 
 > This eliminates manual input and makes the system more scalable, consistent, and future-proof.
 
+You can also import the included `WorkstationMap.json` file to pre-load the mapping tag with example rows.  
+This makes the system plug-and-play without requiring manual setup of the tag or data.
+
 ---
 
 ## ✅ Final Notes
@@ -103,4 +107,5 @@ To configure:
 
 ---
 
+Let’s go make this real. 🚀
 
