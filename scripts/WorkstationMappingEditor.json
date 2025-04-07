@@ -1,0 +1,45 @@
+{
+  "params": {},
+  "root": {
+    "type": "container",
+    "props": {
+      "direction": "column",
+      "padding": 12,
+      "style": { "gap": "1rem" }
+    },
+    "children": [
+      {
+        "type": "label",
+        "props": {
+          "text": "Workstation → Workcenter Mapping",
+          "style": {
+            "fontSize": "18px",
+            "fontWeight": "bold"
+          }
+        }
+      },
+      {
+        "type": "table",
+        "name": "mapTable",
+        "props": {
+          "data": "@tag:[default]/WorkstationMap",
+          "editable": true,
+          "columns": [
+            { "field": "workstation", "editable": true },
+            { "field": "workcenter", "editable": true }
+          ],
+          "style": { "minHeight": "300px" }
+        }
+      },
+      {
+        "type": "button",
+        "name": "saveBtn",
+        "props": {
+          "text": "Save Changes",
+          "style": { "width": "150px" },
+          "onClick": "system.tag.writeBlocking(['[default]/WorkstationMap'], [self.parent.getChild('mapTable').props.data])"
+        }
+      }
+    ]
+  }
+}
