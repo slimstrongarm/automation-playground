@@ -1,0 +1,55 @@
+{
+  "params": {},
+  "root": {
+    "type": "container",
+    "props": {
+      "direction": "column",
+      "style": { "gap": "1rem", "padding": 16 }
+    },
+    "children": [
+      {
+        "type": "label",
+        "props": {
+          "text": "🛠️ Tooling Queue",
+          "style": {
+            "fontSize": "20px",
+            "fontWeight": "bold"
+          }
+        }
+      },
+      {
+        "type": "table",
+        "name": "tbl_requests",
+        "props": {
+          "data": "@tagDir:[default]/ToolRequests",
+          "columns": [
+            { "field": "tool_id", "header": "Tool ID" },
+            { "field": "status", "header": "Status" },
+            { "field": "priority", "header": "Priority" },
+            { "field": "due_time", "header": "Due" },
+            { "field": "location", "header": "Location" },
+            { "field": "requested_by", "header": "Requested By" },
+            {
+              "field": "action",
+              "header": "Action",
+              "render": {
+                "type": "button",
+                "props": {
+                  "text": "Mark Ready",
+                  "style": {
+                    "backgroundColor": "#28a745",
+                    "color": "#ffffff"
+                  },
+                  "onClick": "runScript('project.scripts.tool_request_actions.mark_ready', { tool_id: row.tool_id })"
+                }
+              }
+            }
+          ],
+          "style": {
+            "minHeight": "400px"
+          }
+        }
+      }
+    ]
+  }
+}
