@@ -11,10 +11,7 @@
         "type": "label",
         "props": {
           "text": "🛠️ Tooling Queue",
-          "style": {
-            "fontSize": "20px",
-            "fontWeight": "bold"
-          }
+          "style": { "fontSize": "20px", "fontWeight": "bold" }
         }
       },
       {
@@ -30,24 +27,30 @@
             { "field": "location", "header": "Location" },
             { "field": "requested_by", "header": "Requested By" },
             {
+              "field": "ready_location",
+              "header": "Ready Location",
+              "render": {
+                "type": "text-field",
+                "props": {
+                  "placeholder": "e.g. Table A",
+                  "value": "{row.ready_location}"
+                }
+              }
+            },
+            {
               "field": "action",
               "header": "Action",
               "render": {
                 "type": "button",
                 "props": {
                   "text": "Mark Ready",
-                  "style": {
-                    "backgroundColor": "#28a745",
-                    "color": "#ffffff"
-                  },
-                  "onClick": "runScript('project.scripts.tool_request_actions.mark_ready', { tool_id: row.tool_id })"
+                  "style": { "backgroundColor": "#28a745", "color": "#fff" },
+                  "onClick": "runScript('project.scripts.tool_request_actions.mark_ready', { tool_id: row.tool_id, location: row.ready_location })"
                 }
               }
             }
           ],
-          "style": {
-            "minHeight": "400px"
-          }
+          "style": { "minHeight": "400px" }
         }
       }
     ]
