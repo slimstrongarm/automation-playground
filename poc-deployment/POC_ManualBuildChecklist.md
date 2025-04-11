@@ -29,6 +29,22 @@ runScript(
 
 ---
 
+## 🧠 Python Script Breakdown: Run Card Creation
+
+### Script: `project.scripts.run_card_creator.run(workorder, workstation)`
+**Called by:** Button in `run_card_entry_view`
+
+**Purpose:**
+- Checks if a Run_Card UDT instance exists in `[default]/RunCards`
+- If not, creates it using `system.tag.configure()`
+- Writes initial values like workorder, workstation, reporter, status, and start time
+- Publishes Run Card data to MQTT under the UNS path:
+  - `joby/santa-cruz/run_cards/{workorder}/status`
+  - `joby/santa-cruz/run_cards/{workorder}/workstation`
+  - etc.
+
+---
+
 ## 2️⃣ Run Card Display View
 
 **View Name:** `RunCardDisplay`
@@ -63,6 +79,30 @@ runScript(
 
 ---
 
+## 🧠 Python Script Breakdown: Kanban Logic
+
+### Script: `project.scripts.run_cards.getKanbanInstances(workflowOrder)`
+**Called by:** `kanban_board_base_layout` repeater binding
+
+**Purpose:**
+- Calls `getRunCardQueueByWorkcenter()` to group active Run_Card tags by workcenter
+- Returns a list of instances to feed into the WorkcenterColumn repeater
+
+### Script: `project.scripts.run_cards.getRunCardQueueByWorkcenter()`
+**Purpose:**
+- Browses `[default]/RunCards` for UDT instances
+- Reads `status` and `workcenter` tags
+- Returns a dictionary like:
+```python
+{
+  "Cutting": ["RunCards/MFID001"],
+  "Layup": ["RunCards/MFID002", "RunCards/MFID003"]
+}
+```
+- Only includes Run Cards that are **not marked as complete**
+
+---
+
 ## 4️⃣ Workcenter Column View
 
 **View Name:** `WorkcenterColumn`
@@ -82,5 +122,5 @@ runScript(
 
 ---
 
-Let’s build it one screen at a time. 🚀
+
 
